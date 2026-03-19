@@ -1,17 +1,17 @@
-This assingment utilizes a distributed feature engineering pipeline with Apache Spark to analyze artificial café sales information. The aim of the system is to showcase how distributed data processing frameworks can effectively manage large datasets while ensuring reproducibility and scalability.
-Feature engineering is an essential phase in data science workflows, particularly when dealing with extensive data sets. Frameworks like Apache Spark enable data transformations and aggregations to occur across various partitions, facilitating scalable processing that exceeds the constraints of a single system.
+This assignment utilizes a distributed feature engineering pipeline with Apache Spark to analyze café sales information. The goal of this project is to demonstrate how distributed data processing frameworks can handle large datasets while maintaining reproducibility and scalability.
+Feature engineering is an important step in data science workflows, especially when working with large datasets. Frameworks like Apache Spark enable data transformations and aggregations to occur across various partitions, allowing the system to process data beyond the limits of a single machine.
 The system handles simulated transaction data and calculates combined insights like beverage popularity and overall café revenue.
 
-Generating Data
+ Data Generation:
 Sales data for the  café was produced using the script generate_data.py. The generator allows adjustable dataset sizes and utilizes a seeded random number generator to guarantee reproducibility.
-Every produced record signifies a café sales transaction and encompasses features like beverage type, amount sold, and income.
+Each record represents a café sales transaction. and encompasses features like beverage type, amount sold, and income.
 To guarantee reproducibility, a constant seed value of 42 was utilized during the creation of datasets. Executing the data generation script several times with the same seed yields the same datasets.
 Two datasets were created for evaluation and comparison purposes:
-Limited dataset
+small dataset
 1000 rows employed to confirm pipeline accuracy.
 Large dataset
 10,000,000 rows utilized to assess distributed processing performance.
-Pipeline Architecture with Distribution
+Distributed Pipeline Architecture 
 The pipeline.py file contains the implementation of the distributed pipeline utilizing Apache Spark. Spark facilitates distributed data processing by splitting datasets into partitions and performing transformations across various worker processes.
 The pipeline performs the following steps:
 Load the dataset from the specified input directory
@@ -24,11 +24,12 @@ Calculates the total number of orders for each drink type.
 Café Revenue
 Computes aggregated sales metrics such as total revenue and total quantity sold.Spark spreads these operations over partitions, allowing for simultaneous computation.
 
-Pipeline performance was evaluated using datasets of different sizes. Execution time was measured using the time command.Limited dataset processing time
- 0m25.220s
+Pipeline performance was evaluated using datasets of different sizes. Execution time was measured using the time command. 
+small dataset processing time
+real 0m25.220s
 Large dataset processing time
- 1m32.359s
-The limited dataset execution mainly illustrates Spark startup costs. Distributed frameworks necessitate extra configuration time prior to performing transformations.
+real 1m32.359s
+The small dataset execution mainly illustrates Spark startup costs. Distributed frameworks necessitate extra configuration time prior to performing transformations.
 The large dataset execution showcases the pipeline's capacity to handle considerably larger datasets. Spark effectively allocates aggregation tasks across partitions, allowing the system to handle millions of records in a timely manner.
 Reproducibility
 Reproducibility was guaranteed via multiple methods:
