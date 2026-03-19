@@ -1,6 +1,6 @@
 # jkaur20-milestone4
 
-This initiative establishes a distributed feature engineering pipeline utilizing Apache Spark. Synthetic café sales data is created and analyzed through distributed transformations to calculate aggregated metrics like beverage popularity and total café sales.
+This initiative establishes a distributed feature engineering pipeline utilizing Apache Spark. café sales data is created and analyzed through distributed transformations to calculate aggregated metrics like beverage popularity and total café sales.
 
 This project aims to assess the scalability of feature engineering tasks in distributed data processing frameworks while ensuring reproducibility.
 
